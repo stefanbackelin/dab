@@ -4,7 +4,7 @@
 | :--- | :--- |
 | **Författare:** | Stefan Backelin |
 | **Version:** | 1.1 |
-| **Senast uppdaterad:** | 2026-06-29 |
+| **Senast uppdaterad:** | 2026-06-30 |
 
 ## Innehållsförteckning
 
