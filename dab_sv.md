@@ -170,7 +170,7 @@ För att eliminera missförstånd och mikrostyrning kräver detta arbetssätt en
 #### 2. Kompetenschef / Personalchef
 
 * **Vem kan ha rollen:** En linjechef med personal-, löne- och utvecklingsansvar för utvecklarna, men som inte deltar i teamets dagliga leverans eller ceremonier.
-* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Använder projektets `People & Accountability Audit`-vy som primärt underlag under 1-2-1-möten och utvecklingssamtal.
+* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Använder projektets `Developer Impact`-vy som primärt underlag under 1-2-1-möten och utvecklingssamtal.
 * **Operationellt mandat:** Äger karriärvägar, lönesättning och kompetensutveckling. Kan i samråd med medarbetaren och teamchefen styra vilken utvecklare som bör ta Driver-rollen på en kommande Epic för att utmanas och växa i sin yrkesroll.
 
 #### 3. Product Owner (PO) / Produktägare
@@ -295,7 +295,7 @@ Genom detta arbetssätt uppnår teamet fyra konkreta resultat:
 
 1. **Hög motståndskraft mot avbrott:** Genom att frysa `🟢 Active Development` och endast tillåta styrda byten i `🟡 Ready for Dev` får utvecklarna den arbetsro som krävs för att leverera med hög kvalitet.
 2. **Kvalitativ / minskad mötestid:** Utvecklingsteamet slipper sitta med på abstrakta intagsmöten. De kliver först in när en Epic har fått en tilldelad Driver och ska förfinas under ett Refinement-möte.
-3. **Objektivt beslutsunderlag vid lönesamtal:** Kompetenschefen kan med ett klick granska exakt vilka initiativ en utvecklare har drivit och tagit ansvar för via `People & Accountability Audit`-vyn, vilket baserar karriär- och löneutveckling på faktiska, mätbara prestationer.
+3. **Objektivt beslutsunderlag vid 121 och lönesamtal:** Kompetenschefen kan med ett klick nästan exakt se vilka initiativ en utvecklare har drivit och tagit ansvar för via `Developer Impact`-vyn, vilket baserar karriär- och löneutveckling på faktiska, mätbara prestationer.
 4. **Självreglerande intressenthantering:** Nollsummeprincipen tvingar affärssidan att själva prioritera sina önskemål mot varandra, vilket eliminerar rollen som "nej-sägande" teamchef.
 
 ## <a id="ai-integration"></a> AI-integration
@@ -355,7 +355,7 @@ graph TD
 1. `Analyze_Intake_Skill`: Extraherar nyckelord, identifierar funktionella krav från intagsmallen på en ny Epic i `🔵 Refinement Queue`.
 2. `Scan_Codebase_Skill`: Söker igenom det aktuella GitHub-repositoryt efter relevanta filer, API-ändpunkter och arkitektoniska mönster.
 3. `Draft_Tasklist_Skill`: Använder GitHubs API för att generera ett färdigt förslag på en Markdown Tasklist inuti moder-Epicen.
-4. `Audit_Velocity_Skill`: Aggregerar data från `People & Accountability Audit`-vyn för att paketera en objektiv PDF-rapport till kompetenschefen inför lönesamtalet.
+4. `Audit_Velocity_Skill`: Aggregerar data från `Developer Impact`-vyn för att paketera en objektiv PDF-rapport till kompetenschefen inför lönesamtalet.
 
 ## <a id="dora-metriker"></a> DORA-metriker
 
@@ -439,8 +439,8 @@ Detta arbetssätt fungerar genom att filtrera samma underliggande data i tre oli
   * Skapa en ny vy och döp den till `Active Development`.
   * Sätt filter till: `is:issue -label:epic`.
   * *Resultat:* Utvecklarna ser, flyttar och uppdaterar sina enskilda tekniska sub-issues i det dagliga arbetet utan att vyn störs av högnivå-Epics.
-* **C. People & Accountability Audit (För Kompetens- och Linjechefer):**
-  * Skapa en ny vy (förslagsvis i listformat) och döp den till `People & Accountability Audit`.
+* **C. Developer Impact (För Kompetens- och Linjechefer):**
+  * Skapa en ny vy (förslagsvis i listformat) och döp den till `Developer Impact`.
   * Sätt filter till: `is:issue label:epic`.
   * Välj **Group by**: `Assignee` (eller ditt anpassade `Driver`-fält).
   * *Resultat:* Chefer med personal- och löneansvar kan filtrera på en specifik utvecklares namn. Det ger en objektiv historik i realtid över vilka Epics som medarbetaren har förberett, brutit ner och framgångsrikt drivit i mål under året.
@@ -465,7 +465,7 @@ Följande diagram visar hur projektets data strömmas till rätt målgrupp utifr
 graph TD
     Data[💾 Gemensam data i GitHub Project] -->|Filter: is:issue label:epic| ViewA[🗺️ Roadmap View]
     Data -->|Filter: is:issue -label:epic| ViewB[⚙️ Active Development]
-    Data -->|Filter: is:issue label:epic + Slice by: Assignee| ViewC[👥 People & Accountability Audit]
+    Data -->|Filter: is:issue label:epic + Slice by: Assignee| ViewC[👥 Developer Impact]
 
     ViewA -->|Används av| RolePO[Product Owner & Intressenter]
     ViewA -->|Används av| RoleEM[Teamchef / Engineering Manager]
