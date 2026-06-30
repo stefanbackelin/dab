@@ -18,9 +18,9 @@
 8. [Förväntansstyrning](#forvantansstyrning)
 9. [Styrningsprinciper och operationella begränsningar](#styrningsprinciper)
 10. [Kärnfördelar](#karnfordelar)
-11. [AI-Integration](#ai-integration)
-12. [DORA-metriker](#dora-metriker)
-13. [Steg-för-steg-guide för GitHub-implementation](#github-guide)
+11. [DORA-metriker](#dora-metriker)
+12. [Steg-för-steg-guide för GitHub-implementation](#github-guide)
+13. [AI-Integration](#ai-integration)
 14. [Ordlista & Begreppsförklaringar](#ordlista)
 
 ---
@@ -298,10 +298,6 @@ Genom detta arbetssätt uppnår teamet fyra konkreta resultat:
 3. **Objektivt beslutsunderlag vid 121 och lönesamtal:** Kompetenschefen kan med ett klick nästan exakt se vilka initiativ en utvecklare har drivit och tagit ansvar för via `Developer Impact`-vyn, vilket baserar karriär- och löneutveckling på faktiska, mätbara prestationer.
 4. **Självreglerande intressenthantering:** Nollsummeprincipen tvingar affärssidan att själva prioritera sina önskemål mot varandra, vilket eliminerar rollen som "nej-sägande" teamchef.
 
-## <a id="ai-integration"></a> AI-integration
-
-Se den separata guiden: **[AI-integration](ai_integration.md)**
-
 ## <a id="dora-metriker"></a> DORA-metriker
 
 DORA-metriker (DevOps Research and Assessment) är fyra branschstandarder som mäter hur bra ett utvecklingsteam levererar kod och hur stabilt systemet är. Även om teamet redan gör många små driftsättningar (deployments) idag, hjälper DAB-modellen till att hålla i det arbetssättet och göra det mer kontrollerat.
@@ -344,6 +340,10 @@ Så här stödjer modellen de fyra olika mätvärdena:
 ## <a id="github-guide"></a> Steg-för-steg-guide för GitHub-implementation
 
 Se den separata guiden: **[Steg-för-steg-guide för GitHub-implementation](github_guide.md)**
+
+## <a id="ai-integration"></a> AI-integration
+
+Se den separata guiden: **[AI-integration](ai_integration.md)**
 
 ## <a id="ordlista"></a> Ordlista & begreppsförklaringar
 
