@@ -66,18 +66,35 @@ Detta arbetssätt är inte ett påhittat kompromissverktyg, utan vilar på etabl
 Hela flödet från att en idé föds hos en stakeholder till att den är produktionssatt styrs genom följande cykel.
 
 ```mermaid
-
 graph TD
-    A[Externa önskemål / Idéer] -->|Intagsmall| B(🔵 Refinement Queue)
-    B -->|Continuous Triage<br>Driver tilldelas| C(🟡 Ready for Dev)
-    C -->|Refinement Session<br>Sub-issues skapas| D(🟢 Active Development)
-    D -->|Kodning & Granskning| E(✅ Done)
+    subgraph "Idé & Krav"
+        A[Externa önskemål / Idéer]
+        F[Buggrapporter]
+    end
+
+    subgraph "Förberedande Fas"
+        A -->|Intagsmall| B(🔵 Refinement Queue)
+        F --> B
+        B --> M1([🗓️ Continuous Triage])
+    end
+
+    subgraph "Utvecklingscykel"
+        M1 -->|Driver tilldelas| C(🟡 Ready for Dev)
+        C --> M2([🗓️ Refinement Session])
+        M2 -->|Sub-issues skapas| D(🟢 Active Development)
+        D -->|Kodning & Granskning| E(✅ Done)
+    end
+
+    style A fill:#fff,stroke:#333,stroke-width:2px,color:#333
+    style F fill:#fff,stroke:#c0392b,stroke-width:2px,stroke-dasharray: 5 5,color:#333
     
     style B fill:#3498db,stroke:#2980b9,color:#fff
     style C fill:#f1c40f,stroke:#f39c12,color:#fff
     style D fill:#2ecc71,stroke:#27ae60,color:#fff
     style E fill:#95a5a6,stroke:#7f8c8d,color:#fff
 
+    style M1 fill:#8e44ad,stroke:#7d3c98,color:#fff,stroke-width:3px
+    style M2 fill:#8e44ad,stroke:#7d3c98,color:#fff,stroke-width:3px
 ```
 
 Varje steg i detta flöde vilar på en överenskommelse om ägandeskap, vilket redogörs för i kommande kapitel.
