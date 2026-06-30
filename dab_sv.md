@@ -106,7 +106,7 @@ Varje steg i detta flöde vilar på en överenskommelse om ägandeskap, vilket r
 
 ## <a id="intag"></a> Intag, refinement och nedbrytning av epics
 
-För att säkerställa hög kvalitet och spårbarhet följer varje affärsönskemål en strikt standardiserad process innan utvecklarna börjar skriva kod.
+För att säkerställa hög kvalitet och spårbarhet följer varje affärsönskemål en standardiserad process innan utvecklarna börjar skriva kod.
 
 ### Intagsmallen (The Intake Template)
 
@@ -127,7 +127,7 @@ När en Epic godkänns under Triage utses en utvecklare till **Driver**.
 
 ## <a id="kadens"></a> Kadens & ceremonier
 
-För att hålla den dynamiska bufferten levande utan att introducera möteströtthet bygger arbetssättet på tre distinkta, tidsboxade ceremonier. Varje session har en tydlig ägare och ett strikt syfte.
+För att hålla den dynamiska bufferten levande utan att introducera möteströtthet bygger arbetssättet på tre distinkta, tidsboxade ceremonier. Varje session har en tydlig ägare och syfte.
 
 ### A. Continuous Triage (Intagsporten)
 
@@ -210,7 +210,7 @@ För att snabbt kunna utläsa vem som gör vad under processens olika faser till
 | **6. 1-2-1 / Belastning & Prestation** | C | **A** | I | I | I |
 
 > ⚠️ **Varning för dubbelroller (PO som Leveransansvarig):**
-> Om rollerna *Product Owner* och *Teamchef/Leveransansvarig* innehas av samma person, uppstår en inbyggd intressekonflikt mellan affärens krav på snabbhet och teamets behov av stabilitet. I dessa fall blir systemets **guardrails** (WIP-gränser och Nollsummeprincipen i Kapitel 9) absolut heliga. Personen måste då strikt tvinga sig själv att tillämpa "Swapping-principen" och får inte godtyckligt överbelasta den aktiva kön, eftersom det inte finns någon separat Teamchef som kan lägga in ett veto.
+> Om rollerna *Product Owner* och *Teamchef/Leveransansvarig* innehas av samma person, uppstår en inbyggd intressekonflikt mellan affärens krav på snabbhet och teamets behov av stabilitet. I dessa fall blir systemets **guardrails** (WIP-gränser och Nollsummeprincipen i Kapitel 9) absolut heliga. Personen måste då tvinga sig själv att tillämpa "Swapping-principen" och får inte godtyckligt överbelasta den aktiva kön, eftersom det inte finns någon separat Teamchef som kan lägga in ett veto.
 >
 > 💡 **Undantag: Utvecklare som Product Owner (PO):**
 > Om en utvecklare kliver in i rollen som PO, drar organisationen nytta av djup teknisk förståelse i intagsfasen. För att detta inte ska leda till utbrändhet eller splittrat fokus gäller två regler:
@@ -247,7 +247,7 @@ Att tilldela en enskild utvecklare rollen som Driver för flera stora initiativ 
 
 Att flytta ofullständiga eller dåligt definierade förfrågningar till den kommande arbetskön (`🟡 Ready for Dev`) introducerar oplanerat analysarbete mitt i utvecklingscykeln, vilket destabiliserar teamets takt. En Epic får inte flyttas från `🔵 Refinement Queue` till `🟡 Ready for Dev` förrän den uppfyller följande kriterier:
 
-1. En dedikerad **Epic Driver** är officiellt tilldelad på issuen.
+1. En dedikerad **Epic Driver** är officiellt tilldelad till issuen.
 2. Det tekniska **Refinement-mötet** har genomförts.
 3. Epic-issuen innehåller en komplett **GitHub Tasklist** där alla underliggande tekniska sub-issues är genererade och länkade.
 
@@ -260,7 +260,7 @@ Den kommande kön (`🟡 Ready for Dev`) representerar en fast kapacitetsgräns 
 
 ### D. Hantering av buggar och incidenter (Flödesregler)
 
-För att förhindra att buggar destabiliserar utvecklingstiden i `🟢 Active Development` tillämpas en strikt tvåspårsmodell:
+För att förhindra att buggar destabiliserar utvecklingstiden i `🟢 Active Development` tillämpas en tvåspårsmodell:
 
 1. **Kritiska incidenter (Blockers):** Buggar som innebär produktionsstopp eller blockerar pågående leveranser går helt förbi Triage. De eskaleras direkt till `🟢 Active Development` med taggarna `bug` och `critical`. Teamet pausar vid behov pågående Epic-arbete för att lösa incidenten (så kallad "svärmning").
 2. **Standardbuggar (Icke-kritiska):** Mindre fel och optimeringar betraktas som vanliga produktförbättringar. De landar i `🔵 Refinement Queue`, utvärderas under *Continuous Triage*, tilldelas en Driver och måste genomgå en kort teknisk granskning under *Refinement* innan de får flyttas till den aktiva kön.
@@ -300,7 +300,7 @@ Genom detta arbetssätt uppnår teamet fyra konkreta resultat:
 
 ## <a id="ai-integration"></a> AI-integration
 
-Modellen är väl förberedd för att integrera AI-agenter i utvecklingsflödet. Den strikta strukturen med `Epic Drivers` och `Tasklists` gör att agenter kan verka autonomt utan att skapa kodkaos.
+Modellen är väl förberedd för att integrera AI-agenter i utvecklingsflödet. Strukturen med `Epic Drivers` och `Tasklists` gör att agenter kan verka autonomt utan att skapa kodkaos.
 
 ### A. AI:n som Co-Driver under Refinement
 
@@ -632,7 +632,7 @@ För att säkerställa att både affärssidan, utvecklingsteamet och kompetensch
 * **Sub-issue (Underuppgift):** De konkreta, tekniska byggstenarna som en Epic bryts ner till under Refinement-mötet. Det är på denna nivå som det dagliga kodningsarbetet sker, och det är dessa som betas av i utvecklarnas vy (`Active Development`).
 * **Epic Driver:** Den utvecklare som tar tillfälligt ägandeskap över en specifik Epic. Rollen roterar inom teamet och innebär att man äger den tekniska förberedelsen (Refinement) och fungerar som primär kontaktperson för initiativet.
 * **Execution Agent:** Den resurs som faktiskt utför det praktiska kodningsarbetet på en enskild *sub-issue*. Kan vara antingen en mänsklig utvecklare i teamet eller en autonom AI-agent.
-* **WIP-gräns (Work in Progress):** En strikt begränsning för hur många uppgifter eller Epics som får ligga i kolumnen `🟢 Active Development` samtidigt. Detta görs för att förhindra splittrat fokus och korta ledtiderna (baserat på Little’s lag).
+* **WIP-gräns (Work in Progress):** En begränsning för hur många uppgifter eller Epics som får ligga i kolumnen `🟢 Active Development` samtidigt. Detta görs för att förhindra splittrat fokus och korta ledtiderna (baserat på Little’s lag).
 * **Continuous Triage:** Det återkommande mötet där nya idéer och buggar i `🔵 Refinement Queue` granskas, valideras mot intagsmallen och antingen sorteras bort eller godkänns och tilldelas en *Driver*.
 * **Refinement Session:** Det tekniska planeringsmötet där teamet, lett av Epicens *Driver*, bryter ner en övergripande affärsfunktion till konkreta och körbara tekniska uppgifter via GitHub Tasklists.
 * **Horizon Sync:** Det månatliga mötet med nyckelintressenter där den strategiska tidslinjen (`Now`, `Next`, `Later`) gås igenom och eventuella omprioriteringar görs baserat på nya behov.
