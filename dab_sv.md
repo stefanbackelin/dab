@@ -582,6 +582,46 @@ För att chefer och intressenter ska se exakta framsteg i `Roadmap View` utan at
 
 > 💡 **Felsökningstips:** Om du inte hittar *Tracks* eller *Progress* i listan över fält, beror det oftast på att projektet är helt tomt. GitHub döljer ibland dessa fält i gränssnittet tills det finns minst en issue i projektet som faktiskt innehåller en aktiv Tasklist. Lägg till din första Epic med en tillhörande tasklist, så dyker fälten upp under vy-inställningarna.
 
+### Steg 8: Konfigurera Insikter (Insights)
+
+För att få en datadriven överblick över teamets flöde och snabbt kunna identifiera flaskhalsar, konfigurera följande tre diagram under projektets **Insights**-flik.
+
+#### 1. Kumulativt flödesdiagram (Cumulative Flow Diagram)
+
+Detta är det viktigaste diagrammet för att övervaka teamets hälsa över tid.
+
+*   **Syfte:** Visualiserar antalet ärenden i varje statuskolumn. Ett växande `Active Development`-område signalerar att mer arbete påbörjas än vad som slutförs, vilket indikerar en flaskhals.
+*   **Konfiguration:**
+    *   Skapa en ny insikt och välj **Chart**.
+    *   Välj **Cumulative flow diagram**.
+    *   **X-axel:** `Time`
+    *   **Y-axel:** `Count of items`
+    *   **Group by:** `Status`
+
+#### 2. Hastighet (Velocity)
+
+Detta diagram hjälper er att förstå och förutse hur mycket arbete teamet kan slutföra per iteration.
+
+*   **Syfte:** Mäter hur många ärenden som flyttas till `✅ Done` per tidsperiod. Ger en datadriven grund för planering.
+*   **Konfiguration:**
+    *   Skapa en ny insikt och välj **Chart**.
+    *   **Layout:** `Bar chart`
+    *   **X-axel:** `Iteration` (eller `Time` grupperat per vecka/månad)
+    *   **Y-axel:** `Count of items`
+    *   **Filter:** `Status:Done`
+
+#### 3. Cykeltid (Cycle Time)
+
+Detta diagram visar den faktiska tiden det tar för ett ärende att röra sig genom er process.
+
+*   **Syfte:** Mäter tiden från att ett ärende går in i `🟢 Active Development` tills det når `✅ Done`. Hjälper er att se om era förbättringsåtgärder faktiskt kortar ledtiderna.
+*   **Konfiguration:**
+    *   Skapa en ny insikt och välj **Chart**.
+    *   **Layout:** `Line chart`
+    *   **X-axel:** `Time`
+    *   **Y-axel:** `Cycle time`
+    *   **Filter:** `Status:Done`
+
 ## <a id="ordlista"></a> Ordlista & begreppsförklaringar
 
 För att säkerställa att både affärssidan, utvecklingsteamet och kompetenschefer talar samma språk, definieras här de viktigaste begreppen som används i detta arbetssätt:
@@ -595,7 +635,7 @@ För att säkerställa att både affärssidan, utvecklingsteamet och kompetensch
 * **WIP-gräns (Work in Progress):** En strikt begränsning för hur många uppgifter eller Epics som får ligga i kolumnen `🟢 Active Development` samtidigt. Detta görs för att förhindra splittrat fokus och korta ledtiderna (baserat på Little’s lag).
 * **Continuous Triage:** Det återkommande mötet där nya idéer och buggar i `🔵 Refinement Queue` granskas, valideras mot intagsmallen och antingen sorteras bort eller godkänns och tilldelas en *Driver*.
 * **Refinement Session:** Det tekniska planeringsmötet där teamet, lett av Epicens *Driver*, bryter ner en övergripande affärsfunktion till konkreta och körbara tekniska uppgifter via GitHub Tasklists.
-* **Horizon Sync:** Det månatliga mötet med nyckelintressenter där den strategiska tidslinjen (`Now`, `Next`, `Later`) gås igenom och eventuella omprioriteringar görs baserat på företagets övergripande mål.
+* **Horizon Sync:** Det månatliga mötet med nyckelintressenter där den strategiska tidslinjen (`Now`, `Next`, `Later`) gås igenom och eventuella omprioriteringar görs baserat på nya behov.
 * **Nollsummeprincipen (Swapping):** Regeln som säger att om ett nytt, akut initiativ måste tryckas in i den prioriterade kön (`🟡 Ready for Dev`), måste en befintlig Epic av motsvarande storlek plockas bort och flyttas tillbaka till backloggen för att skydda teamets kapacitet.
 * **Definition of Ready (DoR):** En checklista med minimikrav som en Epic måste uppfylla för att få flyttas till den aktiva kön (`🟡 Ready for Dev`). Detta inkluderar att en Driver är utsedd och att den tekniska nedbrytningen är klar.
 * **GitHub Tasklist:** En inbyggd funktion i GitHub Issues som gör det möjligt att länka samman en övergripande moder-Epic med dess underliggande tekniska uppgifter, vilket ger en automatisk och procentuell framstegsindikator i realtid.
