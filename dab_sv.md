@@ -70,7 +70,7 @@ graph TD
     subgraph "Idé & Krav"
         A[Externa önskemål / Idéer]
         F[Standardbuggar]
-        G{Kritiska Incidenter}
+        G[Kritiska Incidenter]
     end
 
     subgraph "Förberedande Fas"
