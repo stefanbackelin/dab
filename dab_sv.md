@@ -441,7 +441,7 @@ Detta arbetssätt fungerar genom att filtrera samma underliggande data i tre oli
   * *Resultat:* Utvecklarna ser, flyttar och uppdaterar sina enskilda tekniska sub-issues i det dagliga arbetet utan att vyn störs av högnivå-Epics.
 * **C. Developer Impact (För Kompetens- och Linjechefer):**
   * Skapa en ny vy (förslagsvis i listformat) och döp den till `Developer Impact`.
-  * Sätt filter till: `is:issue label:epic`.
+  * Sätt filter till: `is:issue label:epic has:assignee`.
   * Välj **Group by**: `Assignee` (eller ditt anpassade `Driver`-fält).
   * *Resultat:* Chefer med personal- och löneansvar kan filtrera på en specifik utvecklares namn. Det ger en objektiv historik i realtid över vilka Epics som medarbetaren har förberett, brutit ner och framgångsrikt drivit i mål under året.
 
