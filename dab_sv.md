@@ -69,7 +69,8 @@ Hela flödet från att en idé föds hos en stakeholder till att den är produkt
 graph TD
     subgraph "Idé & Krav"
         A[Externa önskemål / Idéer]
-        F[Buggrapporter]
+        F[Standardbuggar]
+        G{Kritiska Incidenter}
     end
 
     subgraph "Förberedande Fas"
@@ -82,11 +83,13 @@ graph TD
         M1 -->|Driver tilldelas| C(🟡 Ready for Dev)
         C --> M2([🗓️ Refinement Session])
         M2 -->|Sub-issues skapas| D(🟢 Active Development)
+        G -->|Fast Track| D
         D -->|Kodning & Granskning| E(✅ Done)
     end
 
     style A fill:#fff,stroke:#333,stroke-width:2px,color:#333
     style F fill:#fff,stroke:#c0392b,stroke-width:2px,stroke-dasharray: 5 5,color:#333
+    style G fill:#e74c3c,stroke:#c0392b,color:#fff,stroke-width:2px
     
     style B fill:#3498db,stroke:#2980b9,color:#fff
     style C fill:#f1c40f,stroke:#f39c12,color:#fff
