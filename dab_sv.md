@@ -106,7 +106,7 @@ Varje steg i detta flöde vilar på en överenskommelse om ägandeskap, vilket r
 
 ## <a id="intag"></a> Intag, refinement och nedbrytning av epics
 
-För att säkerställa hög kvalitet och spårbarhet följer varje affärsönskemål en standardiserad process innan utvecklarna börjar skriva kod.
+För att säkerställa hög kvalitet och spårbarhet följer varje affärsönskemål en väldefinierad process innan utvecklarna börjar skriva kod.
 
 ### Intagsmallen (The Intake Template)
 
@@ -121,7 +121,7 @@ Alla nya initiativ som läggs i `🔵 Refinement Queue` måste dokumenteras utif
 När en Epic godkänns under Triage utses en utvecklare till **Driver**.
 
 * **Ägandeskap:** Driver-rollen innebär inte att personen måste göra allt jobb själv. Det betyder att personen äger den tekniska förberedelsen, leder nedbrytningen under nästa Refinement-möte och fungerar som primär kontaktperson för den specifika Epicen.
-* **Nedbrytning (Tasklists):** Under Refinement-mötet använder Drivern GitHubs inbyggda *Tasklists* för att tillsammans med teamet bryta ner Epicen till konkreta, tekniska sub-issues. Dessa sub-issues länkas automatiskt till moder-Epicen, vilket ger chefer och intressenter en procentuell framstegsindikator i realtid.
+* **Nedbrytning (Tasklists):** Under Refinement-mötet nyttjar Drivern GitHubs inbyggda *Tasklists* för att tillsammans med teamet bryta ner Epicen till konkreta, tekniska sub-issues. Dessa sub-issues länkas automatiskt till moder-Epicen, vilket ger chefer och intressenter en procentuell framstegsindikator i realtid.
 
 ---
 
@@ -164,13 +164,13 @@ För att eliminera missförstånd och mikrostyrning kräver detta arbetssätt en
 #### 1. Teamchef / Leveransansvarig (Engineering Manager / Delivery Lead)
 
 * **Vem kan ha rollen:** En operativ ledare som leder det dagliga arbetet och agerar facilitator för teamet.
-* **Huvudansvar:** Skydda teamets leveranskapacitet, moderera *Continuous Triage* samt säkerställa att processens guardrails (WIP-gränser och nollsummeprincipen) efterlevs i det dagliga flödet.
+* **Huvudansvar:** Skydda teamets leveranskapacitet, moderera *Continuous Triage* samt upprätthålla processens guardrails (WIP-gränser och nollsummeprincipen) i det dagliga flödet.
 * **Operationellt mandat:** Kan lägga in ett absolut veto mot att ta in nya Epics i den aktiva kön om teamet är överbelastat.
 
 #### 2. Kompetenschef / Personalchef
 
 * **Vem kan ha rollen:** En linjechef med personal-, löne- och utvecklingsansvar för utvecklarna, men som inte deltar i teamets dagliga leverans eller ceremonier.
-* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Använder projektets `Developer Impact`-vy som primärt underlag under 1-2-1-möten och utvecklingssamtal.
+* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Vyn `Developer Impact` utgör primärt underlag under 1-2-1-möten och utvecklingssamtal.
 * **Operationellt mandat:** Äger karriärvägar, lönesättning och kompetensutveckling. Kan i samråd med medarbetaren och teamchefen styra vilken utvecklare som bör ta Driver-rollen på en kommande Epic för att utmanas och växa i sin yrkesroll.
 
 #### 3. Product Owner (PO) / Produktägare
