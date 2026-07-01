@@ -3,8 +3,8 @@
 | | |
 | :--- | :--- |
 | **Författare:** | Stefan Backelin |
-| **Version:** | 1.1 |
-| **Senast uppdaterad:** | 2026-06-30 |
+| **Version:** | 1.2 |
+| **Senast uppdaterad:** | 2026-07-01 |
 
 ## Innehållsförteckning
 
@@ -58,6 +58,9 @@ Detta arbetssätt är inte ett påhittat kompromissverktyg, utan vilar på etabl
 * **Goodharts lag:** *"När ett mått blir ett mål, upphör det att vara ett bra mått."* I likhet med Campbells lag innebär detta att om vi mäter teamet på om de håller fasta, estimerade datum, kommer de att producera sämre kod och överestimera för att skydda sig själva. Modellen mäter istället värde och genomströmning.
 * **Little’s lag (Köteori):** Bevisar matematiskt att ledtiden ökar dramatiskt när mängden pågående arbete (WIP - Work in Progress) ökar. Genom tyngden i strikta gränser för hur mycket som får ligga i `Now` och `Next` kortas leveranstiderna avsevärt.
 * **Dual-Track Agile (Marty Cagan):** Separerar *Discovery* (att ta reda på vad vi ska bygga) från *Delivery* (att faktiskt bygga det). Vår intagsprocess fungerar som ett Discovery-spår som skyddar leveransspåret från luddiga specifikationer.
+* Ordóñez, L. D., Schweitzer, M. E., Galinsky, A. D., & Bazerman, M. H. (2009). **Goals gone wild: The systematic side effects of over-prescribing goal setting**. Academy of Management Perspectives, 23(1), 6–16. Denna artikel stödjer tanken att överdriven målsättning och alltför detaljerad styrning kan få negativa systemeffekter, vilket ligger nära de problem detta arbetssätt försöker undvika. [Länk](https://www.hbs.edu/ris/Publication%20Files/09-083.pdf)
+* ProdPad. (u.å.). **Why I Invented, now, next, later: A roadmap framework for product teams**. https://www.prodpad.com/blog/invented-now-next-later-roadmap/
+
 
 ---
 
