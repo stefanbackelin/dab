@@ -1,6 +1,6 @@
 ---
 name: Sub Issue
-about: A User Story
+about: 'Används för sub-issues till epics'
 title: ''
 labels: ''
 assignees: ''

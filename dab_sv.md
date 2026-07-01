@@ -3,7 +3,7 @@
 | | |
 | :--- | :--- |
 | **Författare:** | Stefan Backelin |
-| **Version:** | 1.2.1 |
+| **Version:** | 1.3.0 |
 | **Senast uppdaterad:** | 2026-07-01 |
 
 ## Innehållsförteckning

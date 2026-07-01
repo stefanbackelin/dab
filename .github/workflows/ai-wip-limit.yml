@@ -1,0 +1,43 @@
+name: "AI Agent WIP Limit Guard"
+
+on:
+  issues:
+    types: [assigned, edited]
+
+jobs:
+  check-ai-wip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check active issues for AI Agent
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const aiAgentName = "namnet-pa-er-ai-agent"; // Ersätt med agentens GitHub-användarnamn
+            const maxWip = 2;
+            
+            // Hämta alla öppna issues tilldelade till agenten
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              assignee: aiAgentName,
+              state: "open"
+            });
+            
+            // Filtrera på de som ligger i projektets aktiva utvecklingsfas
+            // (Här kan ni även lägga till logik för att matcha projekt-status om det behövs)
+            if (issues.data.length > maxWip) {
+              // Posta en varning och ta bort tilldelningen för att skydda flödet
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `⚠️ **WIP Limit Exceeded:** AI-agenten \`@${aiAgentName}\` har redan ${issues.data.length} aktiva uppgifter. Denna sub-issue har tagits bort från agentens kö i väntan på kapacitet.`
+              });
+              
+              await github.rest.issues.removeAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                assignees: [aiAgentName]
+              });
+            }

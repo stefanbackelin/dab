@@ -1,0 +1,22 @@
+name: "Critical Bug Auto-Move to Active Development"
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  move-critical:
+    if: contains(github.event.issue.labels.*.name, 'critical')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move critical issue to Active Development
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const projectNodeId = "YOUR_PROJECT_NODE_ID"; // Hämta från GitHub GraphQL eller Projects UI
+            const activeDevStatusId = "ACTIVE_DEV_STATUS_ID"; // Status för 🟢 Active Development
+            const nowHorizonId = "NOW_HORIZON_ID"; // Horizon värde för "Now"
+            
+            // Uppdatera issue i projektet (kräver GitHub GraphQL API)
+            // Denna logik kan också göras manuellt via Projects UI med begränsningar
+            console.log(`Critical bug #${context.issue.number} flaggad för manuell escalation`);
