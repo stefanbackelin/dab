@@ -3,7 +3,7 @@
 | | |
 | :--- | :--- |
 | **Författare:** | Stefan Backelin |
-| **Version:** | 1.2 |
+| **Version:** | 1.2.1 |
 | **Senast uppdaterad:** | 2026-07-01 |
 
 ## Innehållsförteckning
@@ -31,7 +31,7 @@ Detta arbetssätt är byggt för att lösa den klassiska dragkampen i matrisorga
 
 ### Friktionen
 
-* **Affärssidan (Stakeholders):** Behöver veta ungefär när funktioner levereras för att t. ex. kunna planera marknadsföring. Detta leder ofta till krav på rigida kvartalsplaner och låsta releasedatum.
+* **Affärssidan (Stakeholders):** Behöver veta ungefär när funktioner levereras för att t. ex. kunna planera marknadsföring. Detta leder ofta till krav på rigida kvartalsplaner.
 * **Utvecklingsteamet:** Verkar i en komplex, föränderlig teknisk miljö där fasta datum sällan håller. Resultatet blir ofta estimeringshets, teknisk skuld och möteströtthet.
 
 Detta dokument beskriver ett arbetssätt som tillåter även en icke-teknisk chef att styra leveransen, ger kompetenschefer full insyn i medarbetarnas prestationer, och skyddar utvecklarnas kalendrar från mikrostyrning.
@@ -52,7 +52,7 @@ Genom att hålla `Next`-kolumnen flytande kan organisationen byta riktning mella
 
 ## <a id="teoretisk-bakgrund"></a> Teoretisk bakgrund
 
-Detta arbetssätt är inte ett påhittat kompromissverktyg, utan vilar på etablerad köteori, agil forskning och modern produktmetodik:
+Detta arbetssätt vilar på etablerad köteori, agil forskning och modern produktmetodik:
 
 * **Campbells lag:** *"Ju mer ett kvantitativt socialt mått används för socialt beslutsfattande, desto mer utsatt kommer det att vara för förvrängning och desto mer kommer det att tendera att snedvrida och korrumpera de sociala processer det är avsett att mäta."* Om vi mäter utvecklare på antal stängda sub-issues kommer de att börja skapa dussintals pyttesmå issues för att "se bra ut" i statistiken. Modellen fokuserar därför på leverans av hela affärsfunktioner (Epics) och samarbete.
 * **Goodharts lag:** *"När ett mått blir ett mål, upphör det att vara ett bra mått."* I likhet med Campbells lag innebär detta att om vi mäter teamet på om de håller fasta, estimerade datum, kommer de att producera sämre kod och överestimera för att skydda sig själva. Modellen mäter istället värde och genomströmning.
@@ -79,12 +79,12 @@ graph TD
     subgraph "Förberedande Fas"
         A -->|Intagsmall| B(🔵 Refinement Queue)
         F --> B
-        B --> M1([🗓️ Continuous Triage])
+        B --> M1([🗓️ Triage])
     end
 
     subgraph "Utvecklingscykel"
         M1 -->|Driver tilldelas| C(🟡 Ready for Dev)
-        C --> M2([🗓️ Refinement Session])
+        C --> M2([🗓️ Refinement])
         M2 -->|Sub-issues skapas| D(🟢 Active Development)
         G -->|Fast Track| D
         D -->|Kodning & Granskning| E(✅ Done)
@@ -132,7 +132,7 @@ När en Epic godkänns under Triage utses en utvecklare till **Driver**.
 
 För att hålla den dynamiska bufferten levande utan att introducera möteströtthet bygger arbetssättet på tre distinkta, tidsboxade ceremonier. Varje session har en tydlig ägare och syfte.
 
-### A. Continuous Triage (Intagsporten)
+### A. Triage (Intagsporten)
 
 * **Frekvens:** Varannan vecka.
 * **Tidsåtgång:** 30 minuter.
@@ -140,7 +140,7 @@ För att hålla den dynamiska bufferten levande utan att introducera möteströt
 * **Deltagare:** Teamchef, Product Owner samt en teknisk representant (Tech Lead eller roterande utvecklare).
 * **Syfte:** Granska nya ärenden i `🔵 Refinement Queue` som kommit in via intagsmallen. Teamchefen sorterar bort ofullständiga förfrågningar. Godkända ärenden valideras utifrån affärsvärde. **Innan en godkänd Epic lämnar mötet tilldelas en utsedd Driver till ärendet.** Ingen djupare teknisk diskussion sker här.
 
-### B. Refinement Session (Den tekniska nedbrytningen)
+### B. Refinement (Den tekniska nedbrytningen)
 
 * **Frekvens:** En gång per cykel (vanligtvis varannan vecka).
 * **Tidsåtgång:** 45–60 minuter.
@@ -160,14 +160,14 @@ För att hålla den dynamiska bufferten levande utan att introducera möteströt
 
 ## Rollfördelning och ansvarsmatris (RACI)
 
-För att eliminera missförstånd och mikrostyrning kräver detta arbetssätt en skarp gränsdragning mellan strategiskt ägandeskap ("vad och varför"), tekniskt exekverande ("hur och vem") och personalutveckling ("människan").
+För att eliminera missförstånd och mikrostyrning görs en skarp gränsdragning mellan strategiskt ägandeskap ("vad och varför"), tekniskt exekverande ("hur och vem") och personalutveckling ("människan").
 
 ### De fem nyckelrollerna
 
 #### 1. Teamchef / Leveransansvarig (Engineering Manager / Delivery Lead)
 
 * **Vem kan ha rollen:** En operativ ledare som leder det dagliga arbetet och agerar facilitator för teamet.
-* **Huvudansvar:** Skydda teamets leveranskapacitet, moderera *Continuous Triage* samt upprätthålla processens guardrails (WIP-gränser och nollsummeprincipen) i det dagliga flödet.
+* **Huvudansvar:** Skydda teamets leveranskapacitet, moderera *Triage* samt upprätthålla processens guardrails (WIP-gränser och nollsummeprincipen) i det dagliga flödet.
 * **Operationellt mandat:** Kan lägga in ett absolut veto mot att ta in nya Epics i den aktiva kön om teamet är överbelastat.
 
 #### 2. Kompetenschef / Personalchef
@@ -206,7 +206,7 @@ För att snabbt kunna utläsa vem som gör vad under processens olika faser till
 | Processfas / Aktivitet | Teamchef | Kompetenschef | Product Owner | Epic Driver | Execution Agent |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **1. Skriva Intagsmall (Idé)** | I | I | **A** | C | - |
-| **2. Continuous Triage (Granskning)** | **A** | I | R | C | I |
+| **2. Triage (Granskning)** | **A** | I | R | C | I |
 | **3. Refinement (Nedbrytning)** | I | I | C | **A** | R |
 | **4. Kodning & Exekvering (Sub-issues)** | I | I | I | **A** | R |
 | **5. Horizon Sync (Strategisk justering)** | R | I | **A** | I | I |
@@ -266,7 +266,7 @@ Den kommande kön (`🟡 Ready for Dev`) representerar en fast kapacitetsgräns 
 För att förhindra att buggar destabiliserar utvecklingstiden i `🟢 Active Development` tillämpas en tvåspårsmodell:
 
 1. **Kritiska incidenter (Blockers):** Buggar som innebär produktionsstopp eller blockerar pågående leveranser går helt förbi Triage. De eskaleras direkt till `🟢 Active Development` med taggarna `bug` och `critical`. Teamet pausar vid behov pågående Epic-arbete för att lösa incidenten (så kallad "svärmning").
-2. **Standardbuggar (Icke-kritiska):** Mindre fel och optimeringar betraktas som vanliga produktförbättringar. De landar i `🔵 Refinement Queue`, utvärderas under *Continuous Triage*, tilldelas en Driver och måste genomgå en kort teknisk granskning under *Refinement* innan de får flyttas till den aktiva kön.
+2. **Standardbuggar (Icke-kritiska):** Mindre fel och optimeringar betraktas som vanliga produktförbättringar. De landar i `🔵 Refinement Queue`, utvärderas under *Triage*, tilldelas en Driver och måste genomgå en kort teknisk granskning under *Refinement* innan de får flyttas till den aktiva kön.
 
 ### E. Avvikelsehantering: När systemet utmanas (Nödventiler)
 
@@ -282,7 +282,7 @@ Om kolumnen `🟢 Active Development` blir röd (t.ex. att det står `5/4` kort 
 
 Ibland upptäcker teamet mitt i utvecklingsfasen att en Epic är betydligt större eller mer komplex än vad som framkom under Refinement-mötet.
 
-* **Åtgärd:** Epic Driver har mandat att direkt flagga detta till Teamchefen och Product Owner. Utvecklingen pausas temporärt och Epicen skickas omedelbart tillbaka till nästa *Continuous Triage*-möte för en "om-triage". Här fattas beslut om att antingen:
+* **Åtgärd:** Epic Driver har mandat att direkt flagga detta till Teamchefen och Product Owner. Utvecklingen pausas temporärt och Epicen skickas omedelbart tillbaka till nästa *Triage*-möte för en "om-triage". Här fattas beslut om att antingen:
   1. Bryta ut den gömda komplexiteten till en helt ny, separat Epic (som landar i `🔵 Refinement Queue`).
   2. Tillämpa *Swapping-principen* och lyfta ut en annan Epic från `🟡 Ready for Dev` för att frigöra den extra kapacitet och tid som nu krävs.
 
@@ -359,8 +359,8 @@ För att säkerställa att både affärssidan, utvecklingsteamet och kompetensch
 * **Epic Driver:** Den utvecklare som tar tillfälligt ägandeskap över en specifik Epic. Rollen roterar inom teamet och innebär att man äger den tekniska förberedelsen (Refinement) och fungerar som primär kontaktperson för initiativet.
 * **Execution Agent:** Den resurs som faktiskt utför det praktiska kodningsarbetet på en enskild *sub-issue*. Kan vara antingen en mänsklig utvecklare i teamet eller en autonom AI-agent.
 * **WIP-gräns (Work in Progress):** En begränsning för hur många uppgifter eller Epics som får ligga i kolumnen `🟢 Active Development` samtidigt. Detta görs för att förhindra splittrat fokus och korta ledtiderna (baserat på Little’s lag).
-* **Continuous Triage:** Det återkommande mötet där nya idéer och buggar i `🔵 Refinement Queue` granskas, valideras mot intagsmallen och antingen sorteras bort eller godkänns och tilldelas en *Driver*.
-* **Refinement Session:** Det tekniska planeringsmötet där teamet, lett av Epicens *Driver*, bryter ner en övergripande affärsfunktion till konkreta och körbara tekniska uppgifter via GitHub Tasklists.
+* **Triage:** Det återkommande mötet där nya idéer och buggar i `🔵 Refinement Queue` granskas, valideras mot intagsmallen och antingen sorteras bort eller godkänns och tilldelas en *Driver*.
+* **Refinement:** Det tekniska planeringsmötet där teamet, lett av Epicens *Driver*, bryter ner en övergripande affärsfunktion till konkreta och körbara tekniska uppgifter via GitHub Tasklists.
 * **Horizon Sync:** Det månatliga mötet med nyckelintressenter där den strategiska tidslinjen (`Now`, `Next`, `Later`) gås igenom och eventuella omprioriteringar görs baserat på nya behov.
 * **Nollsummeprincipen (Swapping):** Regeln som säger att om ett nytt, akut initiativ måste tryckas in i den prioriterade kön (`🟡 Ready for Dev`), måste en befintlig Epic av motsvarande storlek plockas bort och flyttas tillbaka till backloggen för att skydda teamets kapacitet.
 * **Definition of Ready (DoR):** En checklista med minimikrav som en Epic måste uppfylla för att få flyttas till den aktiva kön (`🟡 Ready for Dev`). Detta inkluderar att en Driver är utsedd och att den tekniska nedbrytningen är klar.
