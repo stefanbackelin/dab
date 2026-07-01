@@ -55,4 +55,4 @@ graph TD
 1. `Analyze_Intake_Skill`: Extraherar nyckelord, identifierar funktionella krav från intagsmallen på en ny Epic i `🔵 Refinement Queue`.
 2. `Scan_Codebase_Skill`: Söker igenom det aktuella GitHub-repositoryt efter relevanta filer, API-ändpunkter och arkitektoniska mönster.
 3. `Draft_Tasklist_Skill`: Använder GitHubs API för att generera ett färdigt förslag på en Markdown Tasklist inuti moder-Epicen.
-4. `Audit_Velocity_Skill`: Aggregerar data från `Developer Impact`-vyn för att paketera en objektiv PDF-rapport till kompetenschefen inför lönesamtalet.
+4. `Audit_Velocity_Skill`: Aggregerar data från `Impact`-vyn för att paketera en objektiv PDF-rapport till kompetenschefen inför lönesamtalet.

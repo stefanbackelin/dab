@@ -154,7 +154,7 @@ För att hålla den dynamiska bufferten levande utan att introducera möteströt
 * **Tidsåtgång:** 30 minuter.
 * **Huvudansvarig:** Teamchef / Product Owner.
 * **Deltagare:** Ledningsgrupp, nyckelintressenter, Teamchef.
-* **Syfte:** Hantera externa förväntningar med hjälp av den levande projekttavlan. Istället för PowerPoint granskar deltagarna `Roadmap View` (filtrerad på `🟡 Ready for Dev` och `🟢 Active Development`) för att fatta beslut om eventuella högnivåbyten (swapping) eller omprioriteringar i kön baserat på nya företagsdirektiv.
+* **Syfte:** Hantera externa förväntningar med hjälp av den levande projekttavlan. Istället för PowerPoint granskar deltagarna `Roadmap` (filtrerad på `🟡 Ready for Dev` och `🟢 Active Development`) för att fatta beslut om eventuella högnivåbyten (swapping) eller omprioriteringar i kön baserat på nya företagsdirektiv.
 
 ---
 
@@ -173,7 +173,7 @@ För att eliminera missförstånd och mikrostyrning görs en skarp gränsdragnin
 #### 2. Kompetenschef / Personalchef
 
 * **Vem kan ha rollen:** En linjechef med personal-, löne- och utvecklingsansvar för utvecklarna, men som inte deltar i teamets dagliga leverans eller ceremonier.
-* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Vyn `Developer Impact` utgör primärt underlag under 1-2-1-möten och utvecklingssamtal.
+* **Huvudansvar:** Följa medarbetarnas prestationer, individuella belastning och långsiktiga personliga utveckling. Vyn `Impact` utgör primärt underlag under 1-2-1-möten och utvecklingssamtal.
 * **Operationellt mandat:** Äger karriärvägar, lönesättning och kompetensutveckling. Kan i samråd med medarbetaren och teamchefen styra vilken utvecklare som bör ta Driver-rollen på en kommande Epic för att utmanas och växa i sin yrkesroll.
 
 #### 3. Product Owner (PO) / Produktägare
@@ -191,7 +191,7 @@ För att eliminera missförstånd och mikrostyrning görs en skarp gränsdragnin
 #### 5. Execution Agent (Människa eller AI)
 
 * **Vem kan ha rollen:** Utvecklare i teamet, eller autonoma AI-agenter.
-* **Huvudansvar:** Verkställa de enskilda, tekniska sub-issues som ligger i `Active Development`. Skriva ren kod, skriva tillhörande tester och skicka in Pull Requests för granskning.
+* **Huvudansvar:** Verkställa de enskilda, tekniska sub-issues som ligger i `Development`. Skriva ren kod, skriva tillhörande tester och skicka in Pull Requests för granskning.
 * **Operationellt mandat:** Fritt val av lokal teknisk implementation så länge den följer projektets gällande arkitekturriktlinjer, Definition of Done (DoD) och passerar CI/CD-testerna.
 
 ### RACI-Matris (Responsibility Assignment Matrix)
@@ -298,7 +298,7 @@ Genom detta arbetssätt uppnår teamet fyra konkreta resultat:
 
 1. **Hög motståndskraft mot avbrott:** Genom att frysa `🟢 Active Development` och endast tillåta styrda byten i `🟡 Ready for Dev` får utvecklarna den arbetsro som krävs för att leverera med hög kvalitet.
 2. **Kvalitativ / minskad mötestid:** Utvecklingsteamet slipper sitta med på abstrakta intagsmöten. De kliver först in när en Epic har fått en tilldelad Driver och ska förfinas under ett Refinement-möte.
-3. **Objektivt beslutsunderlag vid 121 och lönesamtal:** Kompetenschefen kan med ett klick nästan exakt se vilka initiativ en utvecklare har drivit och tagit ansvar för via `Developer Impact`-vyn, vilket baserar karriär- och löneutveckling på faktiska, mätbara prestationer.
+3. **Objektivt beslutsunderlag vid 121 och lönesamtal:** Kompetenschefen kan med ett klick nästan exakt se vilka initiativ en utvecklare har drivit och tagit ansvar för via `Impact`-vyn, vilket baserar karriär- och löneutveckling på faktiska, mätbara prestationer.
 4. **Självreglerande intressenthantering:** Nollsummeprincipen tvingar affärssidan att själva prioritera sina önskemål mot varandra, vilket eliminerar rollen som "nej-sägande" teamchef.
 
 ## <a id="dora-metriker"></a> DORA-metriker
@@ -355,7 +355,7 @@ För att säkerställa att både affärssidan, utvecklingsteamet och kompetensch
 * **Matrisorganisation:** En organisationsform där medarbetare har mer än en chef. Utvecklare tillhör en funktionell bas under en *Kompetenschef* (personal och utveckling) men arbetar i dagliga produktteam under ledning av en *Teamchef* och *Product Owner* (leverans och produkt).
 * **Epic:** Ett större utvecklingsinitiativ eller en affärsfunktion som är för stor för att hanteras som en enskild uppgift. En Epic måste dokumenteras i intagsmallen och brytas ner i mindre, tekniska delmoment innan den kan påbörjas.
 * **Leverans (Delivery):** Det faktiska, körbara värde som når slutanvändaren eller produktion. I detta arbetssätt mäts en leverans inte i antal timmar eller kodrader, utan i färdigställandet av en *Epic* som uppfyller sina uppsatta acceptanskriterier.
-* **Sub-issue (Underuppgift):** De konkreta, tekniska byggstenarna som en Epic bryts ner till under Refinement-mötet. Det är på denna nivå som det dagliga kodningsarbetet sker, och det är dessa som betas av i utvecklarnas vy (`Active Development`).
+* **Sub-issue (Underuppgift):** De konkreta, tekniska byggstenarna som en Epic bryts ner till under Refinement-mötet. Det är på denna nivå som det dagliga kodningsarbetet sker, och det är dessa som betas av i utvecklarnas vy (`Development`).
 * **Epic Driver:** Den utvecklare som tar tillfälligt ägandeskap över en specifik Epic. Rollen roterar inom teamet och innebär att man äger den tekniska förberedelsen (Refinement) och fungerar som primär kontaktperson för initiativet.
 * **Execution Agent:** Den resurs som faktiskt utför det praktiska kodningsarbetet på en enskild *sub-issue*. Kan vara antingen en mänsklig utvecklare i teamet eller en autonom AI-agent.
 * **WIP-gräns (Work in Progress):** En begränsning för hur många uppgifter eller Epics som får ligga i kolumnen `🟢 Active Development` samtidigt. Detta görs för att förhindra splittrat fokus och korta ledtiderna (baserat på Little’s lag).

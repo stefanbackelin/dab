@@ -6,7 +6,7 @@ Följ dessa instruktioner för att konfigurera arbetssättet i ett GitHub-organi
 
 1. Navigera till din GitHub-organisation och välj **Projects** -> **New project**.
 2. Välj mallen **Board** och klicka på **Create**.
-3. Döp om projektet till `[Teamnamn] Strategic Delivery Board`.
+3. Döp om projektet till `[Teamnamn] Delivery Board`.
 
 ### Steg 2: Konfigurera statuskolumnerna
 
@@ -27,22 +27,22 @@ Hitta standardfältet `Status` under "Fields" i projektets inställningar och ma
     * `Next` (Gul)
     * `Later` (Blå)
 
-### Steg 4a: Konfigurera vyerna (Utveckling, Ledning & Personalansvar)
+### Steg 4a: Konfigurera vyerna
 
 Detta arbetssätt fungerar genom att filtrera samma underliggande data i tre olika skräddarsydda vyer:
 
-* **A. Roadmap View (För Intressentavstämning & Product Owners):**
-  * Skapa en ny vy (Board) i projektet och döp den till `Roadmap View`.
+* **A. Roadmap (För Intressentavstämning & Product Owners):**
+  * Skapa en ny vy (Board) i projektet och döp den till `Roadmap`.
   * Sätt filter till: `is:issue label:epic` (säkerställ datan genom att tagga moder-issues med 'epic').
   * Välj **Group by**: `Horizon`.
   * *Resultat:* Intressenter ser endast övergripande Epics sorterade efter tidshorisont. GitHub visar automatiskt en procentuell framstegsindikator baserad på underliggande sub-issues.
   * > 💡 **Förtydligande:** Nya Epics som skapas hamnar automatiskt i status `🔵 Refinement Queue` och har ännu inget värde i `Horizon`-fältet. I denna vy kommer de därför att visas i en egen kolumn, ofta kallad "No value". Detta är avsiktligt. Den kolumnen fungerar som en kö för Product Owner att under *Horizon Sync*-mötet dra kort ifrån för att aktivt prioritera dem till `Now`, `Next`, eller `Later`.
-* **B. Active Development (För Utvecklingsteamet):**
-  * Skapa en ny vy och döp den till `Active Development`.
+* **B. Development (För Utvecklingsteamet):**
+  * Skapa en ny vy och döp den till `Development`.
   * Sätt filter till: `is:issue -label:epic`.
   * *Resultat:* Utvecklarna ser, flyttar och uppdaterar sina enskilda tekniska sub-issues i det dagliga arbetet utan att vyn störs av högnivå-Epics.
-* **C. Developer Impact (För Kompetens- och Linjechefer):**
-  * Skapa en ny vy (förslagsvis i listformat) och döp den till `Developer Impact`.
+* **C. Impact (För Kompetens- och Linjechefer):**
+  * Skapa en ny vy (förslagsvis i listformat) och döp den till `Impact`.
   * Sätt filter till: `is:issue label:epic has:assignee`.
   * Välj **Group by**: `Assignee` (eller ditt anpassade `Driver`-fält).
   * *Resultat:* Chefer med personal- och löneansvar kan filtrera på en specifik utvecklares namn. Det ger en objektiv historik i realtid över vilka Epics som medarbetaren har förberett, brutit ner och framgångsrikt drivit i mål under året.
@@ -65,9 +65,9 @@ Följande diagram visar hur projektets data strömmas till rätt målgrupp utifr
 ```mermaid
 
 graph TD
-    Data[💾 Gemensam data i GitHub Project] -->|Filter: is:issue label:epic| ViewA[🗺️ Roadmap View]
-    Data -->|Filter: is:issue -label:epic| ViewB[⚙️ Active Development]
-    Data -->|Filter: is:issue label:epic + Slice by: Assignee| ViewC[👥 Developer Impact]
+    Data[💾 Gemensam data i GitHub Project] -->|Filter: is:issue label:epic| ViewA[🗺️ Roadmap]
+    Data -->|Filter: is:issue -label:epic| ViewB[⚙️ Development]
+    Data -->|Filter: is:issue label:epic + Slice by: Assignee| ViewC[👥 Impact]
 
     ViewA -->|Används av| RolePO[Product Owner & Intressenter]
     ViewA -->|Används av| RoleEM[Teamchef / Engineering Manager]
@@ -172,12 +172,12 @@ Gå till **Issues** -> **Labels** i ert repo och städa upp så att ni har följ
 
 ### Steg 7: Automatisk framstegsindikator (Parent/Child-länkning)
 
-För att chefer och intressenter ska se exakta framsteg i `Roadmap View` utan att utvecklarna behöver uppdatera moder-Epicen manuellt, utnyttjar vi GitHubs inbyggda relationer mellan Tasklists och Projects:
+För att chefer och intressenter ska se exakta framsteg i `Roadmap` utan att utvecklarna behöver uppdatera moder-Epicen manuellt, utnyttjar vi GitHubs inbyggda relationer mellan Tasklists och Projects:
 
 1. **När en Epic bryts ner under Refinement:** Öppna Epic-issuen i ert repository och klicka på **Add tasklist** i beskrivningen.
 2. **Skapa sub-issues direkt i listan:** Skriv namnet på de tekniska uppgifterna direkt i listan och klicka på ikonen för att konvertera dem till riktiga issues i ert repository. Detta skapar en automatisk koppling där Epicen blir en "Parent" till dina sub-issues.
 3. **Aktivera framstegskolumnen i projektet:**
-   * Gå till er **Roadmap View** (eller den vy ni vill visa framstegen i).
+   * Gå till er **Roadmap** (eller den vy ni vill visa framstegen i).
    * Klicka på den lilla nedåt-pilen bredvid vyns namn uppe i fliken, alternativt klicka på plus-ikonen (`+`) längst till höger bland kolumnrubrikerna om ni använder tabellvy.
    * Välj **Fields** i menyn.
    * Bocka i system-fälten **Tracks** (visar antal stängda sub-issues, t.ex. `2/5`) och **Progress** (visar en grafisk och procentuell framstegsbar baserad på tillhörande Tasklists).
@@ -192,7 +192,7 @@ För att få en datadriven överblick över teamets flöde och snabbt kunna iden
 
 Detta är det viktigaste diagrammet för att övervaka teamets hälsa över tid.
 
-*   **Syfte:** Visualiserar antalet ärenden i varje statuskolumn. Ett växande `Active Development`-område signalerar att mer arbete påbörjas än vad som slutförs, vilket indikerar en flaskhals.
+*   **Syfte:** Visualiserar antalet ärenden i varje statuskolumn. Ett växande `Development`-område signalerar att mer arbete påbörjas än vad som slutförs, vilket indikerar en flaskhals.
 *   **Konfiguration:**
     *   Skapa en ny insikt och välj **Chart**.
     *   Välj **Cumulative flow diagram**.
